@@ -55,4 +55,4 @@ The [email-plugin.yaml](email-plugin.yaml) file defines the structure and capabi
     13. Make sure the s3 link is referring to the correct schema document
     14. Click on Update
 7. Query the bot and make use of the custom plugin
-    1. You can now use natural language to request the bot to send emails. For example: "Can you send an email to john@example.com with the subject 'Additional Information about Dental Insurance' and the body 'Hi, I was wondering if braces is completely covered with my current dental insurance?“
+    1. You can now use natural language to request the bot to send emails. For example: "Can you send an email to john@example.com with the     subject 'Additional Information about Dental Insurance' and the body 'Hi, I was wondering if braces is completely covered with my           current dental insurance?“
