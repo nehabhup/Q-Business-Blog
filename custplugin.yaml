@@ -74,8 +74,8 @@ Resources:
         CustomPluginConfiguration: 
           ApiSchema: 
               S3: 
-                Bucket: custpluginyemp
-                Key: new-emailplugin2.yaml
+                Bucket: ENTER BUCKET HERE
+                Key: ENTER KEY HERE
           ApiSchemaType: OPEN_API_V3
           Description: emailplugin
         #ServerUrl: !Sub "https://${EmailSenderApi}.execute-api.${AWS::Region}.amazonaws.com"
