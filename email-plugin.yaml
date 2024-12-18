@@ -1,0 +1,70 @@
+openapi: 3.0.1
+info:
+  title: Email Sender API
+  description: API for sending emails via Amazon SES using API Gateway and Lambda
+  version: 1.0.0
+
+servers:
+  - url: https://e2lagfyd42.execute-api.us-east-1.amazonaws.com
+
+paths:
+  /send-email:
+    post:
+      summary: Send an email
+      description: Sends an email using the provided recipient, subject, and message body.
+      operationId: sendEmail
+      requestBody:
+        description: Email details
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                to:
+                  type: string
+                  example: recipient@example.com
+                  description: Recipient email address.
+                subject:
+                  type: string
+                  example: Test Email
+                  description: Email subject.
+                body:
+                  type: string
+                  example: This is a test email sent from Amazon Q.
+                  description: Body content of the email.
+              required:
+                - to
+                - subject
+                - body
+      responses:
+        '200':
+          description: Email sent successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Email sent successfully.
+        '400':
+          description: Bad request due to missing fields.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Missing required fields: to, subject, or body."
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Failed to send email due to an internal error."
