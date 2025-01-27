@@ -1,4 +1,3 @@
-
 Description: >
     Creates a Q Business Application
     
@@ -37,7 +36,35 @@ Resources:
         DisplayName: qbusiness-example-app
         Description: qbusiness demo app
         IdentityCenterInstanceArn: !Ref IdcInstanceArn
-        RoleArn: !Sub arn:aws:iam::${AWS::AccountId}:role/aws-service-role/qbusiness.amazonaws.com/AWSServiceRoleForQBusiness
+        RoleArn: !GetAtt QBusinessServiceRole.Arn
+
+    QBusinessServiceRole:
+      Type: AWS::IAM::Role
+      Properties:
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service: qbusiness.amazonaws.com
+              Action: sts:AssumeRole
+        Path: "/"
+        RoleName: !Sub "QBusinessServiceRole-${AWS::StackName}"
+        Policies:
+          - PolicyName: QBusinessServicePolicy
+            PolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                - Effect: Allow
+                  Action:
+                    - "qbusiness:*"
+                    - "iam:PassRole"
+                    - "identitystore:*"
+                    - "logs:DescribeLogGroups"
+                    - "logs:CreateLogGroup"
+                    - "logs:CreateLogStream"
+                    - "logs:PutLogEvents"
+                  Resource: "*"
 
     QBusinessIndex:
       Type: AWS::QBusiness::Index
