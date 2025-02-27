@@ -16,8 +16,8 @@ The [email-plugin.yaml](email-plugin.yaml) file defines the structure and capabi
 ## Deployment Steps
 
 1. Create an S3 bucket for the Custom Plugin schema
-    1. Add the schema to the location
-    2. Update the cloudformation template to refer to the location and key of the schema
+    1. Add the [email-plugin.yaml](email-plugin.yaml) file  to the location
+    2. Update the [custplugin.yaml](custplugin.yaml) file to refer to the location and key of the schema
 2. Deploy the cloud formation stack
     1. Click "Create stack" and choose "With new resources (standard)".
     2. Fill in the required parameters (IdcInstanceArn, S3BucketName, SESSourceEmail, etc.).
