@@ -1,0 +1,35 @@
+Parameters:
+    ApplicationId:
+        Type: String
+        Description: "The Q Business Application ID"
+    
+    S3BucketName:
+        Type: String
+        Description: "S3 Bucket containing the API schema"
+    
+    ApiSchemaKey:
+        Type: String
+        Description: "S3 Key for the API schema file"
+        Default: "email-plugin.yaml"
+
+Resources:
+    QBusinessCustomPlugin:
+        Type: AWS::QBusiness::Plugin
+        Properties:
+            ApplicationId: !Ref ApplicationId
+            AuthConfiguration: 
+                NoAuthConfiguration: {}
+            CustomPluginConfiguration: 
+                ApiSchema: 
+                    S3: 
+                        Bucket: !Ref S3BucketName
+                        Key: !Ref ApiSchemaKey
+                ApiSchemaType: OPEN_API_V3
+                Description: emailplugin
+            DisplayName: customplugin
+            Type: CUSTOM
+
+Outputs:
+    PluginId:
+        Description: "The ID of the created Q Business Plugin"
+        Value: !Ref QBusinessCustomPlugin
