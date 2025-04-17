@@ -88,3 +88,17 @@ The [email-plugin.yaml](email-plugin.yaml) file defines the structure and capabi
 4. You can now query the bot about your training materials
    - Example: "Tell me about my dental insurance"
 5. Use the Custom Plugin to be able to send an email asking for further information to the email you verified with SES in Step 1
+
+## Troubleshooting
+
+Common issues and solutions:
+- If the data sync fails, ensure your S3 bucket permissions are correctly configured
+- If users can't access the bot, verify they have accepted their invitations and set up passwords
+- If the bot doesn't answer questions about your content, try re-syncing the data source
+
+## Resources
+
+- [Amazon Q Business Documentation](https://docs.aws.amazon.com/amazonq/latest/business-use-guide/what-is.html)
+- [AWS CloudFormation Documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+- [AWS IAM Identity Center Documentation](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
+
