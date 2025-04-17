@@ -37,7 +37,7 @@ The [email-plugin.yaml](email-plugin.yaml) file defines the structure and capabi
 2. Click "Create bucket"
 3. Choose a unique bucket name (e.g., "company-training-materials-2025")
 4. Upload your training materials into this bucket
-   - Mock training data can be found [here in the repository](https://github.com/nehabhup/Q-Business-Blog/blob/main/mock-documentation.pdf)
+   - Mock training data can be found here: [Training-Materials.docx](Training-Materials.docx)
 
 ### Step 3: Deploy the First CloudFormation Stack
 1. Clone this repository: `https://github.com/nehabhup/Q-Business-Blog/`
